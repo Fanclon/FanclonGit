@@ -2,13 +2,12 @@ package com.example.bank
 
 import android.os.Bundle
 import android.view.Gravity
-import android.view.ViewGroup
+import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.drawable.toDrawable
-import androidx.core.view.marginStart
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -43,6 +42,14 @@ class MainActivity : AppCompatActivity() {
                 //lp.setMargins(10,0,10,0);
                 lp.gravity = Gravity.CENTER
                 btnNew.layoutParams = lp
+                btnNew.setOnClickListener {
+                    var lvbutton = it as Button
+
+                    val toast = Toast.makeText(
+                    applicationContext,
+                        lvbutton.text, Toast.LENGTH_SHORT
+                )
+                    toast.show() }
                 LLayout.addView(btnNew) }
             linLayoutParam.gravity = Gravity.CENTER;
             linLayoutParam.setMargins(marginsLeft,0,0,0);
@@ -50,4 +57,13 @@ class MainActivity : AppCompatActivity() {
             LL_Test.addView(LLayout)
         }
     }
+
+    fun Clik(view: View) {
+        val toast = Toast.makeText(
+            applicationContext,
+            "Пора покормить кота!", Toast.LENGTH_SHORT
+        )
+        toast.show()
+    }
 }
+
