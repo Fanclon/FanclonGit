@@ -1,5 +1,6 @@
 package com.example.bank
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
@@ -48,9 +49,17 @@ class MainActivity : AppCompatActivity() {
                     val toast = Toast.makeText(
                     applicationContext,
                         lvbutton.text, Toast.LENGTH_SHORT
+
                 )
-                    toast.show() }
-                LLayout.addView(btnNew) }
+                    toast.show()
+                    val intent = Intent(this,Main2Activity::class.java)
+                    intent.putExtra("Button",lvbutton.text)
+                    startActivity(intent)}
+                    LLayout.addView(btnNew)
+
+
+
+            }
             linLayoutParam.gravity = Gravity.CENTER;
             linLayoutParam.setMargins(marginsLeft,0,0,0);
             LLayout.layoutParams = linLayoutParam
